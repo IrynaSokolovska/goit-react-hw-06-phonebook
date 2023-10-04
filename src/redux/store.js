@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   locale: localeReducer,
 });
 
-const enhancer = devToolsEnhancer();
+const enhancer = devToolsEnhancer(initialState);
 
 export const store = createStore(rootReducer, enhancer);
 // const deposit = {
