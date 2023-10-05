@@ -1,25 +1,35 @@
-import { createStore, combineReducers } from 'redux';
-import { devToolsEnhancer } from '@redux-devtools/extension';
+import { configureStore } from '@reduxjs/toolkit';
+// import { configureStore } from '@reduxjs/toolkit';
+// import { devToolsEnhancer } from '@redux-devtools/extension'; вже не потрібен
 import { accountReducer } from './accountSlice';
 import { localeReducer } from './localeSlice';
 
-const initialState = {
-  account: {
-    balance: 500,
-  },
-  locale: {
-    lang: 'uk',
-  },
-};
+// const initialState = {
+//   account: {
+//     balance: 500,
+//   },
+//   locale: {
+//     lang: 'uk',
+//   },
+// };
 
-const rootReducer = combineReducers({
-  account: accountReducer,
-  locale: localeReducer,
+// const rootReducer = combineReducers({
+//   account: accountReducer,
+//   locale: localeReducer,
+// });
+
+// const enhancer = devToolsEnhancer(); вже не потрібен
+
+// export const store = configureStore({
+//   reducer: rootReducer,
+// });
+export const store = configureStore({
+  reducer: {
+    account: accountReducer,
+    locale: localeReducer,
+  },
 });
-
-const enhancer = devToolsEnhancer(initialState);
-
-export const store = createStore(rootReducer, enhancer);
+// export const store = createStore(rootReducer, enhancer);    вже не потрібен
 // const deposit = {
 //   type: 'account/deposit',
 //   payload: 10,
